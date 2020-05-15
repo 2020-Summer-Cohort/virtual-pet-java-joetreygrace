@@ -8,4 +8,10 @@ public class VirtualPetTest {
     public void test(){
         VirtualPet underTest = new VirtualPet();
     }
+
+//    @Test
+//    public void tiger(){
+//        VirtualPet underTest = new VirtualPet();
+//        String result = underTest.feedTiger(1);
+//    }
 }
