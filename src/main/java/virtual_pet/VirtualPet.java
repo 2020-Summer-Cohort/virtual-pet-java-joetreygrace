@@ -43,7 +43,6 @@ public class VirtualPet {
         int amountTigerGetsSick = rand.nextInt(76);
         if (chanceTheTigerGetsSick == chanceTheTigerGetsSick2) {
             healthLevel = healthLevel - amountTigerGetsSick;
-            System.out.println("");
             System.out.println("Tony has gotten sick");
             System.out.println("");
         }
@@ -122,25 +121,20 @@ public class VirtualPet {
 
     public void whyYouLost() {
         if (healthLevel == 0) {
-            System.out.println("");
             System.out.println("Tony has gotten sick and died from lack of medical care.");
             System.out.println("Game Over.");
         } else if (hungerLevel == 100) {
-            System.out.println("");
             System.out.println("Tony has gotten too hungry and bit your arm.");
             System.out.println("He was taken away by animal control.");
             System.out.println("Game Over.");
         } else if (thirstLevel == 100) {
-            System.out.println("");
             System.out.println("Tony died from dehydration.");
             System.out.println("Game Over.");
         } else if (boredomLevel == 100) {
-            System.out.println("");
             System.out.println("Tony has gotten too bored.");
             System.out.println("Tony escaped and went to Doc Antle's Tiger Reserve.");
             System.out.println("Game Over.");
         } else if (tirednessLevel == 100) {
-            System.out.println("");
             System.out.println("Tony has gotten too sleepy and won't wake up from his nap.");
             System.out.println("Game Over.");
         }
