@@ -1,8 +1,10 @@
 package virtual_pet;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class VirtualPet {
+    Random rand = new Random();
     int hungerLevel = 30;
     int thirstLevel = 30;
     int boredomLevel = 0;
@@ -10,7 +12,7 @@ public class VirtualPet {
     int healthLevel = 100;
 
     public void gameLoop() {
-        while ((healthLevel > 0) && (hungerLevel < 100) && (thirstLevel < 100) && (boredomLevel < 100)) {
+        while ((healthLevel > 0) && (hungerLevel < 100) && (tirednessLevel < 100) && (thirstLevel < 100) && (boredomLevel < 100)) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Tony the Tiger Cub");
             System.out.println("Hunger: " + hungerLevel);
@@ -36,34 +38,42 @@ public class VirtualPet {
         thirstLevel = thirstLevel + 5;
         boredomLevel = boredomLevel + 5;
         tirednessLevel = tirednessLevel + 5;
-
+        int chanceTheTigerGetsSick = rand.nextInt(11);
+        int chanceTheTigerGetsSick2 = rand.nextInt(11);
+        int amountTigerGetsSick = rand.nextInt(76);
+        if (chanceTheTigerGetsSick == chanceTheTigerGetsSick2) {
+            healthLevel = healthLevel - amountTigerGetsSick;
+            System.out.println("");
+            System.out.println("Tony has gotten sick");
+            System.out.println("");
+        }
     }
 
     public void interactWithTigerCub(int userChoice) {
         if (userChoice == 1) {
             hungerLevel = (giveTigerFood(hungerLevel));
             System.out.println("");
-            System.out.println("You fed Tony Carol Baskins Ex-Husband");
+            System.out.println("You fed Tony Carol Baskin's Ex-Husband.");
             System.out.println("");
         } else if (userChoice == 2) {
             thirstLevel = (giveTigerWater(thirstLevel));
             System.out.println("");
-            System.out.println("You gave Tony some water");
+            System.out.println("You gave Tony some water.");
             System.out.println("");
         } else if (userChoice == 3) {
             boredomLevel = playWithYourTiger(boredomLevel);
             System.out.println("");
-            System.out.println("You shot a music video with Tony");
+            System.out.println("You shot a music video with Tony.");
             System.out.println("");
         } else if (userChoice == 4) {
             tirednessLevel = putTigerToBed(tirednessLevel);
             System.out.println("");
-            System.out.println("You put Tony to bed");
+            System.out.println("You put Tony to bed.");
             System.out.println("");
         } else if (userChoice == 5) {
             healthLevel = takeTigerToTheVet(healthLevel);
             System.out.println("");
-            System.out.println("You took Tony to the Vet");
+            System.out.println("You took Tony to the Vet.");
             System.out.println("");
         } else {
             System.out.println("");
@@ -110,5 +120,31 @@ public class VirtualPet {
         return hungerLevel;
     }
 
+    public void whyYouLost() {
+        if (healthLevel == 0) {
+            System.out.println("");
+            System.out.println("Tony has gotten sick and died from lack of medical care.");
+            System.out.println("Game Over.");
+        } else if (hungerLevel == 100) {
+            System.out.println("");
+            System.out.println("Tony has gotten too hungry and bit your arm.");
+            System.out.println("He was taken away by animal control.");
+            System.out.println("Game Over.");
+        } else if (thirstLevel == 100) {
+            System.out.println("");
+            System.out.println("Tony died from dehydration.");
+            System.out.println("Game Over.");
+        } else if (boredomLevel == 100) {
+            System.out.println("");
+            System.out.println("Tony has gotten too bored.");
+            System.out.println("Tony escaped and went to Doc Antle's Tiger Reserve.");
+            System.out.println("Game Over.");
+        } else if (tirednessLevel == 100) {
+            System.out.println("");
+            System.out.println("Tony has gotten too sleepy and won't wake up from his nap.");
+            System.out.println("Game Over.");
+        }
+
+    }
 }
 
