@@ -27,47 +27,86 @@ public class VirtualPet {
             System.out.println("5: Take Tony to the Vet.");
             int userChoice = scanner.nextInt();
             interactWithTigerCub(userChoice);
+            tick();
         }
     }
 
-    void interactWithTigerCub(int userChoice) {
+    public void tick() {
+        hungerLevel = hungerLevel + 5;
+        thirstLevel = thirstLevel + 5;
+        boredomLevel = boredomLevel + 5;
+        tirednessLevel = tirednessLevel + 5;
+
+    }
+
+    public void interactWithTigerCub(int userChoice) {
         if (userChoice == 1) {
             hungerLevel = (giveTigerFood(hungerLevel));
+            System.out.println("");
             System.out.println("You fed Tony Carol Baskins Ex-Husband");
             System.out.println("");
         } else if (userChoice == 2) {
             thirstLevel = (giveTigerWater(thirstLevel));
+            System.out.println("");
             System.out.println("You gave Tony some water");
             System.out.println("");
         } else if (userChoice == 3) {
             boredomLevel = playWithYourTiger(boredomLevel);
+            System.out.println("");
             System.out.println("You shot a music video with Tony");
             System.out.println("");
         } else if (userChoice == 4) {
             tirednessLevel = putTigerToBed(tirednessLevel);
+            System.out.println("");
             System.out.println("You put Tony to bed");
+            System.out.println("");
+        } else if (userChoice == 5) {
+            healthLevel = takeTigerToTheVet(healthLevel);
+            System.out.println("");
+            System.out.println("You took Tony to the Vet");
+            System.out.println("");
+        } else {
+            System.out.println("");
+            System.out.println("You entered an incorrect number:");
             System.out.println("");
         }
     }
 
+    int takeTigerToTheVet(int healthLevel) {
+        healthLevel = healthLevel + 50;
+        if (healthLevel > 100) {
+            healthLevel = 100;
+        }
+        return healthLevel;
+    }
+
     int putTigerToBed(int tirednessLevel) {
-        tirednessLevel = tirednessLevel - 25;
+        tirednessLevel = 0;
         return tirednessLevel;
     }
 
     int playWithYourTiger(int boredomLevel) {
         boredomLevel = boredomLevel - 25;
+        if (boredomLevel < 0) {
+            boredomLevel = 0;
+        }
         return boredomLevel;
     }
 
 
     int giveTigerWater(int thirstLevel) {
         thirstLevel = thirstLevel - 25;
+        if (thirstLevel < 0) {
+            thirstLevel = 0;
+        }
         return thirstLevel;
     }
 
     int giveTigerFood(int hungerLevel) {
         hungerLevel = hungerLevel - 25;
+        if (hungerLevel < 0) {
+            hungerLevel = 0;
+        }
         return hungerLevel;
     }
 
